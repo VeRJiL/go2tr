@@ -14,13 +14,11 @@ class PostResourceCollection extends ResourceCollection
      */
     public function toArray(Request $request)
     {
-        return $this->collection->transform(function ($image) {
+        return $this->collection->transform(function ($post) {
             return [
-                'title' => $image->title,
-                'alt' => $image->alt,
-                'url' => $image->url,
-                'width' => $image->width,
-                'height' => $image->height,
+                'title' => $post->title,
+                'body' => $post->processed_content,
+                'status' => $post->customStatus
             ];
         });
     }

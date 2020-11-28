@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ImageVariation extends Model
 {
@@ -19,5 +19,15 @@ class ImageVariation extends Model
     public function image()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    public function getUrlAttribute()
+    {
+        return config('app.url') . '/images/' . $this->name;
+    }
+
+    public function getPathAttribute()
+    {
+        return public_path('images/' . $this->name);
     }
 }

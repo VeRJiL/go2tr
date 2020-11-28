@@ -144,7 +144,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../physical-store" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Jobs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -153,8 +153,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\go2tr\app" />
+      <recent name="C:\wamp64\www\go2tr\app\Jobs" />
       <recent name="C:\wamp64\www\go2tr\app\Services\Contracts" />
+      <recent name="C:\wamp64\www\go2tr\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\go2tr\routes\web" />
@@ -175,7 +176,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606546443705</updated>
-      <workItem from="1606546444749" duration="33034000" />
+      <workItem from="1606546444749" duration="40097000" />
     </task>
     <servers />
   </component>
@@ -183,14 +184,18 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606580652163">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606592551508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606580652163" />
-    <state x="775" y="243" key="NewPhpClassDialog" timestamp="1606567202174">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606592551508" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606590979773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="775" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606567202174" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606590979773" />
+    <state x="775" y="243" key="NewPhpClassDialog" timestamp="1606590930103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="775" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606590930103" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1606569269053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -199,9 +204,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606556865501" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606580740259">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606592457137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606580740259" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606592457137" />
   </component>
 </project>

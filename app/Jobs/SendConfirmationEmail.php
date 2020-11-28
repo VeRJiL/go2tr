@@ -30,6 +30,6 @@ class SendConfirmationEmail implements ShouldQueue
      */
     public function handle()
     {
-        //
+        // TODO: the logic to send a registration sms
     }
 }

@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
+use App\Models\User;
 use App\Models\Image;
+use App\Services\PostService;
+use App\Services\UserService;
 use App\Services\ImageService;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Contracts\PostServiceInterface;
+use App\Services\Contracts\UserServiceInterface;
 use App\Services\Contracts\ImageServiceInterface;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,7 +37,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(PostServiceInterface::class, function () {
-            return new PostService(new Image());
+            return new PostService(new Post());
+        });
+
+        $this->app->bind(UserServiceInterface::class, function () {
+            return new UserService(new User());
         });
     }
 }

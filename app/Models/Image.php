@@ -38,9 +38,4 @@ class Image extends Model
     {
         return $this->hasMany(ImageVariation::class);
     }
-
-    public function getUrlAttribute()
-    {
-        return public_path($this->path);
-    }
 }

@@ -5,6 +5,7 @@ namespace App\Jobs;
 use DOMDocument;
 use App\Models\Post;
 use App\Models\Image;
+use App\Enums\ImageTag;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -52,7 +53,7 @@ class ProcessPostBody implements ShouldQueue
             $imageRecordAtDB = $imageModel->where('unique_code', $imageTag->getAttribute('unique_code'))
                 ->whereHas('variations', function ($query) {
                     $imageVariationTableName = config('table_names.image_variation');
-                    return $query->where($imageVariationTableName . '.tag', 'original');
+                    return $query->where($imageVariationTableName . '.tag', ImageTag::ORIGINAL);
                 })
                 ->first();
 
@@ -60,7 +61,7 @@ class ProcessPostBody implements ShouldQueue
             $imageTags->setAttribute('height', $imageRecordAtDB->height);
             $imageTags->setAttribute('alt', $imageRecordAtDB->alt);
             $imageTags->setAttribute('title', $imageRecordAtDB->title);
-            $imageTags->setAttribute('src', $imageRecordAtDB->url);
+            $imageTags->setAttribute('src', $imageRecordAtDB->path);
             $imageTags->setAttribute('loading', 'lazy');
         }
 

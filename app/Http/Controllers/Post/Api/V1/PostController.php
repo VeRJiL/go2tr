@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\PostResource;
 use App\Services\Contracts\PostServiceInterface;
 use App\Http\Resources\V1\PostResourceCollection;
 
@@ -52,7 +53,7 @@ class PostController extends Controller
     public function show(int $id)
     {
         return response()->json(
-            $this->postService->find($id)
+            new PostResource($this->postService->find($id))
         );
     }
 

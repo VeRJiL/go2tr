@@ -23,7 +23,7 @@ class CreateImageVariationsTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('tag');
-            $table->string('path');
+            $table->string('name');
             $table->integer('width');
             $table->integer('height');
 

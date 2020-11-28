@@ -17,4 +17,9 @@ class Post extends Model
 
         parent::__construct($attributes);
     }
+
+    public function getCustomStatusAttribute()
+    {
+        return $this->status ? 'Published' : 'Not Published';
+    }
 }

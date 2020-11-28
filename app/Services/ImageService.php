@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Image;
+use App\Enums\ImageTag;
 use App\Acme\BaseAnswer;
 use Illuminate\Http\Request;
 use App\Models\ImageVariation;
@@ -105,23 +106,25 @@ class ImageService extends Service implements ImageServiceInterface
 
     private function uploadOriginal($request): BaseAnswer
     {
-        return $this->saveImage($request->file('image'), 'original');
+        return $this->saveImage($request->file('image'), ImageTag::ORIGINAL);
     }
 
     private function uploadLowQuality($request): BaseAnswer
     {
-        return $this->saveImage($request->file('image'), 'low_quality', 50);
+        return $this->saveImage($request->file('image'), ImageTag::LOW_QUALITY, 50);
     }
 
     private function saveImage($file, $tag, $quality = 100): BaseAnswer
     {
         $image = ImageManagerStatic::make($file);
-        $image->save(public_path('images'), $quality);
+        $fileName = time() . $file->getClientOriginalName();
+        $path = public_path('images/') . $fileName;
+        $image->save($path, $quality);
 
         $data = [
             'width' => $image->width(),
             'height' => $image->height(),
-            'path' => public_path('storage'),
+            'name' => $fileName,
             'tag' => $tag
         ];
 

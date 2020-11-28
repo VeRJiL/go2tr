@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ImageRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ImageResource;
 use App\Services\Contracts\ImageServiceInterface;
 use App\Http\Resources\V1\ImageResourceCollection;
 
@@ -52,7 +53,7 @@ class ImageController extends Controller
     public function show(int $id)
     {
         return response()->json(
-            $this->imageService->find($id)
+            new ImageResource($this->imageService->find($id))
         );
     }
 
