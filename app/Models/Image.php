@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'alt', 'width', 'height', 'path'];
+    protected $fillable = ['title', 'alt', 'path'];
 
     public function __construct(array $attributes = [])
     {

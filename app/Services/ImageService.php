@@ -10,6 +10,7 @@ use App\Models\ImageVariation;
 use Illuminate\Support\Facades\DB;
 use App\Models\Image as ImageModel;
 use App\Http\Requests\ImageRequest;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use App\Services\Contracts\ImageServiceInterface;
 
@@ -39,8 +40,8 @@ class ImageService extends Service implements ImageServiceInterface
     public function store(ImageRequest $request): BaseAnswer
     {
         DB::transaction(function () use ($request) {
-            $originalResult = $this->uploadOriginal($request);
-            $lowQualityResult = $this->uploadLowQuality($request);
+            $originalResult = $this->uploadOriginal($request)->getData();
+            $lowQualityResult = $this->uploadLowQuality($request)->getData();
 
             $imageObject = $this->createImage($request)->getData();
 
@@ -116,9 +117,11 @@ class ImageService extends Service implements ImageServiceInterface
 
     private function saveImage($file, $tag, $quality = 100): BaseAnswer
     {
+        $this->makeDirectory();
         $image = ImageManagerStatic::make($file);
-        $fileName = time() . $file->getClientOriginalName();
-        $path = public_path('images/') . $fileName;
+        $fileName = $tag . '-' . time() . '-' . $file->getClientOriginalName();
+        $basePath = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images');
+        $path = $basePath . DIRECTORY_SEPARATOR . $fileName;
         $image->save($path, $quality);
 
         $data = [
@@ -129,6 +132,11 @@ class ImageService extends Service implements ImageServiceInterface
         ];
 
         return successAnswer($data);
+    }
+
+    private function makeDirectory()
+    {
+        Storage::disk('local')->makeDirectory('public' . DIRECTORY_SEPARATOR .'images');
     }
 
     private function allowedInputs(): array

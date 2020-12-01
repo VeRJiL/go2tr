@@ -28,12 +28,22 @@ class AuthenticationController extends Controller
 
     }
 
-    public function sendSms(SendSmsRequest $request)
+    public function logout()
     {
 
     }
 
-    public function activate(ActivateRequest $request)
+    public function sendCode(SendSmsRequest $request)
+    {
+
+    }
+
+    public function confirmCode(ActivateRequest $request)
+    {
+
+    }
+
+    public function refresh()
     {
 
     }

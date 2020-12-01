@@ -61,7 +61,7 @@ class ProcessPostBody implements ShouldQueue
             $imageTags->setAttribute('height', $imageRecordAtDB->height);
             $imageTags->setAttribute('alt', $imageRecordAtDB->alt);
             $imageTags->setAttribute('title', $imageRecordAtDB->title);
-            $imageTags->setAttribute('src', $imageRecordAtDB->path);
+            $imageTags->setAttribute('src', url($imageRecordAtDB->path));
             $imageTags->setAttribute('loading', 'lazy');
         }
 
